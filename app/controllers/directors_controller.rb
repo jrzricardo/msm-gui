@@ -1,4 +1,15 @@
 class DirectorsController < ApplicationController
+  def destroy
+    the_id = params.fetch("an_id")
+
+    matching_records = Director.where({ :id => the_id })
+
+    the_director = matching_records.at(0)
+
+    the_director.destroy
+
+    redirect_to("/directors")
+  end
 
   def create
     # {"the_name"=>"1", "the_dob"=>"2", "the_bio"=>"3", "the_image"=>"4"}
@@ -9,7 +20,7 @@ class DirectorsController < ApplicationController
     d.image = params.fetch("the_image")
 
     d.save
-    
+
     redirect_to("/directors")
   end
 
