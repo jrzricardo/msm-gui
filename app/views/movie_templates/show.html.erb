@@ -7,9 +7,9 @@
 </a>
 
 <div>
-<a href="/delete_movie/<%= @the_movie.id %>">
-Delete movie
-</a>
+  <a href="/delete_movie/<%= @the_movie.id %>">
+    Delete movie
+  </a>
 </div>
 <hr>
 <form action="/modify_movie_record/<%= @the_movie.id %>" method="post">
@@ -38,7 +38,8 @@ Delete movie
     <input id="director_id_field" type"text" name="the_director_id" value="<%= @the_movie.director_id %>">
   </div>
 
-<button>Update movie</button>
+  <button>Update movie</button>
+</form>
 <hr>
 <dl>
   <dt>
@@ -81,9 +82,9 @@ Delete movie
   </dt>
   <dd>
     <% dir_id = @the_movie.director_id %>
-    
+
     <% matching_directors = Director.where({ :id => dir_id }) %>
-    
+
     <% the_director = matching_directors.at(0) %>
 
     <% if the_director == nil%>
